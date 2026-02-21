@@ -4,10 +4,11 @@ vim.g.have_nerd_font = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.showmode = false
+vim.opt.wrap = false
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 
@@ -130,7 +131,7 @@ require("lazy").setup({
 			vim.keymap.set("n", "<leader>pf", builtin.find_files, { desc = "[S]earch [F]iles" })
 			vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
 			vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
-			vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
+			vim.keymap.set("n", "<leader>pg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
 			vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 			vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
 			vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
@@ -291,8 +292,10 @@ require("lazy").setup({
 
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
 			local servers = {
+				astro = {},
 				pyright = {},
 				ts_ls = {},
+				rust_analyzer = {},
 				lua_ls = {
 					settings = {
 						Lua = {
@@ -360,6 +363,8 @@ require("lazy").setup({
 				typescript = { "prettier" },
 				javascriptreact = { "prettier" },
 				typescriptreact = { "prettier" },
+				astro = { "prettier" },
+				markdown = { "prettier" },
 			},
 		},
 	},
@@ -531,8 +536,10 @@ require("lazy").setup({
 		main = "nvim-treesitter.configs", -- Sets main module to use for opts
 		opts = {
 			ensure_installed = {
+				"astro",
 				"bash",
 				"c",
+				"css",
 				"diff",
 				"html",
 				"lua",
@@ -544,9 +551,6 @@ require("lazy").setup({
 				"vimdoc",
 				"tsx",
 				"typescript",
-			},
-			autotag = {
-				enable = true,
 			},
 			-- Autoinstall languages that are not installed
 			auto_install = true,
