@@ -20,29 +20,29 @@ confirm() {
 }
 
 # Link Ghostty
-if ! ln -s "$repo_dir/ghostty" ~/.config/ghostty 2>/dev/null; then
+if ! ln -s "$repo_dir/ghostty" ~/.config 2>/dev/null; then
   print_warning "~/.config/ghostty already exists."
   if confirm "Overwrite? (y/n) "; then
     rm -rf ~/.config/ghostty
-    ln -s "$repo_dir/ghostty" ~/.config/ghostty
+    ln -s "$repo_dir/ghostty" ~/.config
   fi
 fi
 
 # Link Tmux
-if ! ln -s "$repo_dir/tmux" ~/.config/tmux 2>/dev/null; then
+if ! ln -s "$repo_dir/tmux" ~/.config 2>/dev/null; then
   print_warning "~/.config/tmux already exists."
   if confirm "Overwrite? (y/n) "; then
     rm -rf ~/.config/tmux
-    ln -s "$repo_dir/tmux" ~/.config/tmux
+    ln -s "$repo_dir/tmux" ~/.config
   fi
 fi
 
 # Link Nvim
-if ! ln -s "$repo_dir/nvim" ~/.config/nvim 2>/dev/null; then
+if ! ln -s "$repo_dir/nvim" ~/.config 2>/dev/null; then
   print_warning "~/.config/nvim already exists."
   if confirm "Overwrite? (y/n) "; then
     rm -rf ~/.config/nvim
-    ln -s "$repo_dir/nvim" ~/.config/nvim
+    ln -s "$repo_dir/nvim" ~/.config
   fi
 fi
 
