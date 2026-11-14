@@ -1,0 +1,20 @@
+ta() {
+  if tmux has-session -t dev 2>/dev/null; then
+    tmux attach -t dev
+  else
+    tmux new-session -s dev -c ~
+  fi
+}
+
+yeet() {
+  BRANCH=$(git branch --show-current)
+  git add -A
+  git commit -m "$1"
+  git push -u origin $BRANCH
+}
+
+merged() {
+  git checkout main
+  git pull
+  git branch -d "$1"
+}

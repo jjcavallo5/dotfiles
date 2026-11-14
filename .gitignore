@@ -1,11 +1,2 @@
-*
-
-!nvim/
-!nvim/**
-!tmux/
-!tmux/**
-!ghostty/
-!ghostty/**
-
 tmux/plugins/
 nvim/plugins/
