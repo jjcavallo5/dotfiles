@@ -352,19 +352,27 @@ require("lazy").setup({
 					return nil
 				else
 					return {
-						timeout_ms = 500,
+						timeout_ms = 3000,
 						lsp_format = "fallback",
 					}
 				end
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
-				javascript = { "prettierd", "prettier", stop_after_first = true },
-				typescript = { "prettier" },
-				javascriptreact = { "prettier" },
-				typescriptreact = { "prettier" },
-				astro = { "prettier" },
-				markdown = { "prettier" },
+				javascript = { "vpfmt", "prettierd", "prettier", stop_after_first = true },
+				typescript = { "vpfmt", "prettierd", "prettier", stop_after_first = true },
+				javascriptreact = { "vpfmt", "prettierd", "prettier", stop_after_first = true },
+				typescriptreact = { "vpfmt", "prettierd", "prettier", stop_after_first = true },
+				astro = { "vpfmt", "prettierd", "prettier", stop_after_first = true },
+				markdown = { "vpfmt", "prettierd", "prettier", stop_after_first = true },
+				rust = { "rustfmt" },
+			},
+			formatters = {
+				vpfmt = {
+					command = "vp",
+					args = { "fmt", "--stdin-filepath", "$FILENAME" },
+					stdin = true,
+				},
 			},
 		},
 	},
@@ -547,6 +555,8 @@ require("lazy").setup({
 				"markdown",
 				"markdown_inline",
 				"query",
+				"rust",
+				"toml",
 				"vim",
 				"vimdoc",
 				"tsx",

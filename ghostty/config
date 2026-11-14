@@ -1,8 +1,10 @@
-theme = tokyonight_night
+theme = TokyoNight
 font-size = 24
 
-keybind = super+1=esc:1
-keybind = super+2=esc:2
+keybind = clear
+
+keybind = cmd+1=esc:1
+keybind = cmd+2=esc:2
 keybind = super+3=esc:3
 keybind = super+4=esc:4
 keybind = super+5=esc:5
@@ -10,3 +12,7 @@ keybind = super+6=esc:6
 keybind = super+7=esc:7
 keybind = super+8=esc:8
 keybind = super+9=esc:9
+
+keybind = ctrl+shift+v=paste_from_clipboard
+keybind = ctrl+shift+c=copy_to_clipboard
+keybind = super+.=esc:.
