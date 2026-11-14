@@ -1,5 +1,8 @@
 #!/bin/bash
 
+repo_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+mkdir -p ~/.config
+
 # Helper Functions
 print_warning() {
   echo -e "\033[30;43m Warning \033[0m: $1"
@@ -17,37 +20,37 @@ confirm() {
 }
 
 # Link Ghostty
-if ! ln -s ./ghostty/ ~/.config > 2&>/dev/null; then
+if ! ln -s "$repo_dir/ghostty" ~/.config/ghostty 2>/dev/null; then
   print_warning "~/.config/ghostty already exists."
   if confirm "Overwrite? (y/n) "; then
     rm -rf ~/.config/ghostty
-    ln -s ./ghostty/ ~/.config
+    ln -s "$repo_dir/ghostty" ~/.config/ghostty
   fi
 fi
 
 # Link Tmux
-if ! ln -s ./tmux/ ~/.config; then
+if ! ln -s "$repo_dir/tmux" ~/.config/tmux 2>/dev/null; then
   print_warning "~/.config/tmux already exists."
   if confirm "Overwrite? (y/n) "; then
     rm -rf ~/.config/tmux
-    ln -s ./tmux/ ~/.config
+    ln -s "$repo_dir/tmux" ~/.config/tmux
   fi
 fi
 
 # Link Nvim
-if ! ln -s ./nvim/ ~/.config; then
+if ! ln -s "$repo_dir/nvim" ~/.config/nvim 2>/dev/null; then
   print_warning "~/.config/nvim already exists."
-  if confirm "Overwrite? (y/n)"; then
+  if confirm "Overwrite? (y/n) "; then
     rm -rf ~/.config/nvim
-    ln -s ./nvim/ ~/.config
+    ln -s "$repo_dir/nvim" ~/.config/nvim
   fi
 fi
 
 # Link Bash Files
-if ! ln -s ./bash/bash_aliases ~/.bash_aliases; then
+if ! ln -s "$repo_dir/bash/bash_aliases" ~/.bash_aliases 2>/dev/null; then
   print_warning "~/.bash_aliases already exists."
-  if confirm "Overwrite? (y/n)"; then
+  if confirm "Overwrite? (y/n) "; then
     rm ~/.bash_aliases
-    ln -s ./bash/bash_aliases ~/.bash_aliases
+    ln -s "$repo_dir/bash/bash_aliases" ~/.bash_aliases
   fi
 fi
