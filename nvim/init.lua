@@ -347,7 +347,7 @@ require("lazy").setup({
 		opts = {
 			notify_on_error = false,
 			format_on_save = function(bufnr)
-				local disable_filetypes = { c = true, cpp = true }
+				local disable_filetypes = {}
 				if disable_filetypes[vim.bo[bufnr].filetype] then
 					return nil
 				else
@@ -359,6 +359,7 @@ require("lazy").setup({
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
+				html = { "oxfmt", "prettierd", "prettier", stop_after_first = true },
 				javascript = { "oxfmt", "prettierd", "prettier", stop_after_first = true },
 				typescript = { "oxfmt", "prettierd", "prettier", stop_after_first = true },
 				javascriptreact = { "oxfmt", "prettierd", "prettier", stop_after_first = true },
@@ -366,6 +367,7 @@ require("lazy").setup({
 				astro = { "oxfmt", "prettierd", "prettier", stop_after_first = true },
 				markdown = { "oxfmt", "prettierd", "prettier", stop_after_first = true },
 				rust = { "rustfmt" },
+				c = { "clang-format" },
 			},
 			formatters = {},
 		},

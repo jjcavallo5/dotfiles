@@ -18,3 +18,23 @@ merged() {
   git pull
   git branch -d "$1"
 }
+
+branch() {
+  if [ $# -ne 1 ]; then
+    echo "Usage: branch <branch name>"
+    return -1
+  fi
+
+  BRANCH=$(git branch --show-current)
+
+  if [[ $BRANCH != "main" ]]; then
+    read -n 1 -p "Branch off of $BRANCH? (y/n) " CHAR
+    echo ""
+
+    if [[ "$CHAR" != "y" ]]; then
+      return
+    fi
+  fi
+
+  git checkout -b "$1" && git push -u origin "$1"
+}
