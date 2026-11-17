@@ -359,21 +359,15 @@ require("lazy").setup({
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
-				javascript = { "vpfmt", "prettierd", "prettier", stop_after_first = true },
-				typescript = { "vpfmt", "prettierd", "prettier", stop_after_first = true },
-				javascriptreact = { "vpfmt", "prettierd", "prettier", stop_after_first = true },
-				typescriptreact = { "vpfmt", "prettierd", "prettier", stop_after_first = true },
-				astro = { "vpfmt", "prettierd", "prettier", stop_after_first = true },
-				markdown = { "vpfmt", "prettierd", "prettier", stop_after_first = true },
+				javascript = { "oxfmt", "prettierd", "prettier", stop_after_first = true },
+				typescript = { "oxfmt", "prettierd", "prettier", stop_after_first = true },
+				javascriptreact = { "oxfmt", "prettierd", "prettier", stop_after_first = true },
+				typescriptreact = { "oxfmt", "prettierd", "prettier", stop_after_first = true },
+				astro = { "oxfmt", "prettierd", "prettier", stop_after_first = true },
+				markdown = { "oxfmt", "prettierd", "prettier", stop_after_first = true },
 				rust = { "rustfmt" },
 			},
-			formatters = {
-				vpfmt = {
-					command = "vp",
-					args = { "fmt", "--stdin-filepath", "$FILENAME" },
-					stdin = true,
-				},
-			},
+			formatters = {},
 		},
 	},
 
